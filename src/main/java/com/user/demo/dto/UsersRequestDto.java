@@ -1,56 +1,25 @@
-package com.user.demo.entity;
+package com.user.demo.dto;
 
 import java.time.LocalDate;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.user.demo.entity.Gender;
 
-@Entity
-public class Users {
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	
-	@Column(nullable = false, unique = true , length = 50)
+public class UsersRequestDto {
 	private String userName;
-	
-	@Column(nullable = false, unique = true , length = 100)
 	private String email;
-	
-	@Column(nullable = false)
 	private String password;
-	
-	@Column(nullable = false, unique = true, length = 10)
 	private String mobile;
-	
-	@Enumerated(EnumType.STRING)
-	@Column(nullable = false, length = 20)
 	private Gender gender;
-	
-	@Column(nullable = false, length = 5000)
 	private String address;
-	
-	@Column(nullable = false)
 	private LocalDate dod;
-	
-	@Column(length = 500)
 	private String dpurl;
-
-	public Users() {
+	public UsersRequestDto() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
-	public Users(Long id, String userName, String email, String password, String mobile, Gender gender, String address,
+	public UsersRequestDto(String userName, String email, String password, String mobile, Gender gender, String address,
 			LocalDate dod, String dpurl) {
 		super();
-		this.id = id;
 		this.userName = userName;
 		this.email = email;
 		this.password = password;
@@ -60,85 +29,59 @@ public class Users {
 		this.dod = dod;
 		this.dpurl = dpurl;
 	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
 	public String getUserName() {
 		return userName;
 	}
-
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
-
 	public String getEmail() {
 		return email;
 	}
-
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
 	public String getPassword() {
 		return password;
 	}
-
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
 	public String getMobile() {
 		return mobile;
 	}
-
 	public void setMobile(String mobile) {
 		this.mobile = mobile;
 	}
-
 	public Gender getGender() {
 		return gender;
 	}
-
 	public void setGender(Gender gender) {
 		this.gender = gender;
 	}
-
 	public String getAddress() {
 		return address;
 	}
-
 	public void setAddress(String address) {
 		this.address = address;
 	}
-
 	public LocalDate getDod() {
 		return dod;
 	}
-
 	public void setDod(LocalDate dod) {
 		this.dod = dod;
 	}
-
 	public String getDpurl() {
 		return dpurl;
 	}
-
 	public void setDpurl(String dpurl) {
 		this.dpurl = dpurl;
 	}
-
 	@Override
 	public String toString() {
-		return "Users [id=" + id + ", userName=" + userName + ", email=" + email + ", password=" + password
-				+ ", mobile=" + mobile + ", gender=" + gender + ", address=" + address + ", dod=" + dod + ", dpurl="
-				+ dpurl + "]";
+		return "UsersRequestDto [userName=" + userName + ", email=" + email + ", password=" + password + ", mobile="
+				+ mobile + ", gender=" + gender + ", address=" + address + ", dod=" + dod + ", dpurl=" + dpurl + "]";
 	}
-
+	
 	
 }
